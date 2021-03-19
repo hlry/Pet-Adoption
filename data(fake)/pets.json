@@ -1,0 +1,19 @@
+{
+    "pets": [
+      {
+        "id": "0",
+        "name": "test name",
+        "color": "black",
+        "species": "dog",
+        "size": "small",
+        "other": [
+            "trained",
+            "indoor",
+            "outdoor",
+            "vaccinated",
+            "microchip"
+          ],
+          "description": "nice dog"
+      }
+    ]
+  }
