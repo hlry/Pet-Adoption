@@ -1,4 +1,4 @@
-const $animalForm = document.querySelector("#animals-form");
+const $petsForm = document.querySelector("#pets-form");
 const $displayArea = document.querySelector("#display-area");
 
 const printResults = (resultArr) => {
@@ -30,7 +30,7 @@ const printResults = (resultArr) => {
 };
 
 const getAnimals = (formData = {}) => {
-  let queryUrl = "/api/animals?";
+  let queryUrl = "/api/adopt?";
 
   Object.entries(formData).forEach(([key, value]) => {
     queryUrl += `${key}=${value}&`;
@@ -53,7 +53,7 @@ const getAnimals = (formData = {}) => {
 
 const handleGetAnimalsSubmit = (event) => {
   event.preventDefault();
-  const dietRadioHTML = $animalForm.querySelectorAll('[name="diet"]');
+  const dietRadioHTML = $petsForm.querySelectorAll('[name="diet"]');
   let diet;
 
   for (let i = 0; i < dietRadioHTML.length; i += 1) {
@@ -67,7 +67,7 @@ const handleGetAnimalsSubmit = (event) => {
   }
 
   const personalityTraitArr = [];
-  const selectedTraits = $animalForm.querySelector('[name="personality"')
+  const selectedTraits = $petsForm.querySelector('[name="other"')
     .selectedOptions;
 
   for (let i = 0; i < selectedTraits.length; i += 1) {
@@ -81,6 +81,6 @@ const handleGetAnimalsSubmit = (event) => {
   getAnimals(animalObject);
 };
 
-$animalForm.addEventListener("submit", handleGetAnimalsSubmit);
+$petsForm.addEventListener("submit", handleGetAnimalsSubmit);
 
 getAnimals();

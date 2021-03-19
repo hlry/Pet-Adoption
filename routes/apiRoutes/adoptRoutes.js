@@ -24,9 +24,9 @@ Microchip BOOLEAN
 Description OPEN ENDED STRING
 ##
 */
-const pets = {
-    'cats': 
-        {
+const pets = [{
+            'color':'black',
+            'species':'cat',
             'name': 'Shirley',
             'age' : 10,
             'size' : 'large',
@@ -35,9 +35,9 @@ const pets = {
             'vaccinated':true, // boolean
             'microchip': true,// boolean
             'description': "Very grump" //open ended string
-    },
-    'dogs': [
-    {
+},{
+    'color':'black',
+        'species':'dog',
         'name' : 'Susan',
         'age' : 5,
         'size' : 'small',
@@ -47,6 +47,8 @@ const pets = {
         'microchip':true,
         'description':null
     },    {
+        'color':'black',
+        'species':'dog',
         'name' : 'Charles',
         'age' : 6,
         'size' : 'large',
@@ -57,14 +59,12 @@ const pets = {
         'description':null
     }
 ]
-}
 
 router.get('/adopt', (req, res) => {
     let results = pets
     if (req.query) {
         console.log(req.query)
-        let filtered = results[req.query.type]
-        console.log(filtered)
+        // TODO 
         //filterByQuery(req.query, results)
     }
     res.json(results);
