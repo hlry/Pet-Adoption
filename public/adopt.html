@@ -18,32 +18,27 @@
   </head>
 
   <body>
-    <header class="py-4 mb-3">
-      <div
-        class="flex-row justify-space-between align-center container-fluid mx-auto"
-      >
-        <h1 class="text-light bg-dark p-3">Pets R Us</h1>
-        <a class="btn col-12 col-md-auto mx-2" href="./index.html">Back</a>
+    <header>
+      <div>
+        <h1>Pets R Us</h1>
+        <a class="btn" href="./index.html">Back</a>
       </div>
     </header>
 
-    <main class="container-fluid mx-auto mb-3">
-      <section class="p-3 mb-3 bg-dark flex-row align-center">
-        <h2 class="text-light col-12 col-lg-5">Your Future Pet is Here</h2>
-        <div
-          class="col-12 col-lg-7 flex-row text-center justify-space-around align-center"
-        ></div>
+    <main>
+      <section>
+        <h2>Your Future Pet is Here</h2>
       </section>
 
-      <section class="my-2 flex-row justify-space-between">
+      <section>
         <!--We can add a filter however this will depend on how we want the filter to work and our data structure-->
 
-        <div class="col-12 col-lg-3 bg-dark p-3">
-          <h3 class="text-light">Filter Your Search.</h3>
+        <div>
+          <h3>Filter Your Search.</h3>
           <form id="pets-form">
             <label for="color-input" class="form-label">Color</label>
-            <div class="flex-row justify-center">
-              <div class="col-auto mb-2">
+            <div>
+              <div>
                 <input
                   type="radio"
                   id="color-input"
@@ -52,7 +47,7 @@
                 />
                 <label for="black-input">Black</label>
               </div>
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="color-input"
@@ -61,7 +56,7 @@
                 />
                 <label for="brown-input">Brown</label>
               </div>
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="color-input"
@@ -70,7 +65,7 @@
                 />
                 <label for="white-input">white</label>
               </div>
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="color-input"
@@ -79,7 +74,7 @@
                 />
                 <label for="multi-color-input">Multi-Color</label>
               </div>
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="color-input"
@@ -91,13 +86,13 @@
             </div>
 
             <label for="species-input" class="form-label">Species</label>
-            <div class="flex-row justify-center">
-              <div class="col-auto mb-2">
+            <div>
+              <div>
                 <input type="radio" id="dog-input" name="species" value="dog" />
                 <label for="dog-input">Dog</label>
               </div>
 
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="cat-input"
@@ -119,17 +114,17 @@
             /> -->
 
             <label for="size-input" class="form-label">Size</label>
-            <div class="flex-row justify-center">
-              <div class="col-auto mb-2">
+            <div>
+              <div>
                 <input
                   type="radio"
                   id="xsmall-input"
                   name="size"
                   value="xsmall"
                 />
-                <label for="piscivore-input">Extra Small</label>
+                <label for="xsmall-input">Extra Small</label>
               </div>
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="small-input"
@@ -139,7 +134,7 @@
                 />
                 <label for="small-input">Small</label>
               </div>
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="medium-input"
@@ -148,7 +143,7 @@
                 />
                 <label for="medium-input">Medium</label>
               </div>
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="large-input"
@@ -157,7 +152,7 @@
                 />
                 <label for="large-input">Large</label>
               </div>
-              <div class="col-auto mb-2">
+              <div>
                 <input
                   type="radio"
                   id="xlarge-input"
@@ -186,27 +181,11 @@
         </div>
 
         <!--This area will display all pets, filter can be added above-->
-        <div class="col-12 col-lg-9 bg-dark p-3">
-          <div class="flex-row justify-space-between" id="display-area"></div>
+        <div>
+          <div id="display-area"></div>
         </div>
       </section>
     </main>
-
-    <main class="container-fluid mx-auto">
-      <section class="p-3 mb-3 bg-dark flex-row align-center">
-        <div
-          class="col-12 col-lg-12 flex-row text-center justify-space-around align-center"
-        >
-          <a class="btn col-12 col-md-auto mx-2" href="./adopt.html"
-            >View Pets</a
-          >
-          <a class="btn col-12 col-md-auto mx-2" href="./share.html"
-            >Share a Pet</a
-          >
-        </div>
-      </section>
-    </main>
-
     <script src="./assets/js/adopt.js"></script>
   </body>
 </html>
