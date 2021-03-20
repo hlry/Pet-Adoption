@@ -31,6 +31,24 @@
       <div>
         <!-- <h3>Filter Your Search.</h3> -->
         <form id="pets-form">
+
+          <!-- Species  -->
+          <label for="species-input" class="form-label has-text-weight-bold">Species:</label>
+          <div>
+            <div>
+              <input type="radio" id="dog-input" name="species" value="dog" />
+              <label for="dog-input">Dog</label>
+            </div>
+            <div>
+              <input type="radio" id="cat-input" name="size" value="cat" />
+              <label for="cat-input">Cat</label>
+            </div>
+            <div>
+              <input type="radio" id="either-input" name="size" value="either" />
+              <label for="either-input">Dogs and Cats</label>
+            </div>
+          </div> <br />
+
           <!-- Color  -->
           <label for="color-input" class="form-label has-text-weight-bold">Color:</label>
           <div>
@@ -44,30 +62,18 @@
             </div>
             <div>
               <input type="radio" id="color-input" name="color" value="white" />
-              <label for="white-input">white</label>
+              <label for="white-input">White</label>
             </div>
             <div>
               <input type="radio" id="color-input" name="color" value="multi-color" />
               <label for="multi-color-input">Multi-Color</label>
             </div>
             <div>
-              <input type="radio" id="color-input" name="color" value="other-color" />
-              <label for="other-color-input">Other</label>
+              <input type="radio" id="any-color-input" name="color" value="any-color" checked />
+              <label for="any-color-input">Any Color</label>
             </div>
           </div> <br />
-          <!-- Species  -->
-          <label for="species-input" class="form-label has-text-weight-bold">Species:</label>
-          <div>
-            <div>
-              <input type="radio" id="dog-input" name="species" value="dog" />
-              <label for="dog-input">Dog</label>
-            </div>
 
-            <div>
-              <input type="radio" id="cat-input" name="size" value="cat" checked />
-              <label for="cat-input">Cat</label>
-            </div>
-          </div> <br />
 
           <!-- <label for="age-input" class="form-label">Age</label>
               <input
@@ -78,14 +84,15 @@
                 placeholder="Enter Age"
               /> -->
 
+          <!-- Size  -->
           <label for="size-input" class="form-label has-text-weight-bold">Size:</label>
           <div>
-            <div>
+            <!-- <div>
               <input type="radio" id="xsmall-input" name="size" value="xsmall" />
               <label for="xsmall-input">Extra Small</label>
-            </div>
+            </div> -->
             <div>
-              <input type="radio" id="small-input" name="size" value="small" checked />
+              <input type="radio" id="small-input" name="size" value="small" />
               <label for="small-input">Small</label>
             </div>
             <div>
@@ -96,26 +103,41 @@
               <input type="radio" id="large-input" name="size" value="large" />
               <label for="large-input">Large</label>
             </div>
-            <div>
+            <!-- <div>
               <input type="radio" id="xlarge-input" name="size" value="xlarge" />
               <label for="xlarge-input">Extra Large</label>
+            </div> -->
+            <div>
+              <input type="radio" id="anysize-input" name="size" value="anysize" checked />
+              <label for="anysize-input">Any Size</label>
             </div>
           </div> <br />
+
           <!-- Other Requests  -->
           <label for="other-input" class="form-label has-text-weight-bold">Other Requests (select all that
             apply):</label> <br />
           <p class="is-size-7">On macOS, use <kbd>command + click</kbd></p>
           <p class="is-size-7">On Windows, use <kdb>ctrl + click</kdb>
           </p> <br />
-          <select multiple id="other-input" class="form-input" name="other">
-            <option value="trained">Trained</option>
-            <option value="indoor">Indoor</option>
-            <option value="outdoor">Outdoor</option>
-            <option value="vaccinated">Vaccinated</option>
-            <option value="microchip">Microchip</option>
-          </select>
+          <div class="select is-multiple is-small">
+            <select multiple id="other-input" class="form-input" name="other">
+              <option value="trained">Trained</option>
+              <option value="indoor">Indoor</option>
+              <option value="outdoor">Outdoor</option>
+              <option value="vaccinated">Vaccinated</option>
+              <option value="microchip">Microchip</option>
+            </select>
+          </div>
+          <br /><br />
 
-          <button class="btn">Get Pets</button>
+          <!-- Buttons  -->
+          <div class="buttons">
+            <!-- Get Pet  -->
+            <button class="btn button is-success">Get Pets</button>
+            <!-- Back to Homepage -->
+            <a class="btn button is-info" href="./index.html">Back</a>
+          </div>
+
         </form>
       </div>
 
@@ -124,7 +146,6 @@
         <div id="display-area"></div>
       </div>
 
-
     </section>
     <!-- End of Card  -->
 
@@ -132,10 +153,7 @@
 
 
 
-    <!-- Back to Homepage -->
-    <section>
-      <a class="btn" href="./index.html">Back</a>
-    </section>
+
   </main>
   <script src="./assets/js/adopt.js"></script>
 </body>
