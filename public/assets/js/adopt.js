@@ -5,36 +5,33 @@ const printResults = (resultArr) => {
   console.log(resultArr);
 
   const petHTML = resultArr.map(
-    ({ id, name, color, species, age, size, otherTraits, description }) => {
+    ({id,pet_name,...rest}) => {
       return `
   <div>
     <div data-id=${id}>
-      <h4>${name}</h4>
-      
-      <p>
-      Color: ${color.substring(0, 1).toUpperCase() + color.substring(1)}<br/>
-      
-      Species: ${
-        species.substring(0, 1).toUpperCase() + species.substring(1)
-      }<br/>
-
-      Age: ${age.substring(0, 1).toUpperCase() + age.substring(1)}<br/>
-
-      Size: ${size.substring(0, 1).toUpperCase() + size.substring(1)}<br/>
-
-      Description: ${
-        description.substring(0, 1).toUpperCase() + description.substring(1)
-      }<br/>
-      
-      Other Traits: ${otherTraits
-        .map(
-          (trait) =>
-            `${trait.substring(0, 1).toUpperCase() + trait.substring(1)}`
-        )
-        .join(", ")}</p>
+      <h4>${pet_name}</h4>
     </div>
   </div>
     `;
+    
+//     <p>
+//     Color: ${color.substring(0, 1).toUpperCase() + color.substring(1)}<br/>
+    
+//     Species: ${
+//       species.substring(0, 1).toUpperCase() + species.substring(1)
+//     }<br/>
+
+//     Age: ${age}<br/>
+
+//     Size: ${size.substring(0, 1).toUpperCase() + size.substring(1)}<br/>
+//     Other Traits: ${otherTraits
+//       .map(
+//         (trait) =>
+//           `${trait.substring(0, 1).toUpperCase() + trait.substring(1)}`
+//       )
+//       .join(", ")}</p>
+//   </div>
+// </div>
     }
   );
 
@@ -66,7 +63,7 @@ const getPets = (formData = {}) => {
 const handleGetPetsSubmit = (event) => {
   event.preventDefault();
 
-  const colorRadioHTML = $petForm.querySelectorAll('[name="color');
+  const colorRadioHTML = $petsForm.querySelectorAll('[name="color');
   let color;
   for (let i = 0; i < colorRadioHTML.length; i += 1) {
     if (colorRadioHTML[i].checked) {
@@ -78,7 +75,7 @@ const handleGetPetsSubmit = (event) => {
     color = "";
   }
 
-  const speciesRadioHTML = $petForm.querySelectorAll('[name="species');
+  const speciesRadioHTML = $petsForm.querySelectorAll('[name="species');
   let species;
   for (let i = 0; i < speciesRadioHTML.length; i += 1) {
     if (speciesRadioHTML[i].checked) {
@@ -90,7 +87,7 @@ const handleGetPetsSubmit = (event) => {
     species = "";
   }
 
-  const sizeRadioHTML = $petForm.querySelectorAll('[name="size');
+  const sizeRadioHTML = $petsForm.querySelectorAll('[name="size');
   let size;
   for (let i = 0; i < sizeRadioHTML.length; i += 1) {
     if (sizeRadioHTML[i].checked) {
@@ -103,7 +100,7 @@ const handleGetPetsSubmit = (event) => {
   }
 
   const otherTraitArr = [];
-  const selectedTraits = $petForm.querySelector('[name="other"')
+  const selectedTraits = $petsForm.querySelector('[name="other"')
     .selectedOptions;
 
   for (let i = 0; i < selectedTraits.length; i += 1) {
