@@ -69,4 +69,4 @@ Pets.init({
 
 );
 
-model.exports= Pets;
+module.exports= Pets;

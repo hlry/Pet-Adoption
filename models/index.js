@@ -7,11 +7,11 @@ Pets.belongsTo(User,{
     foreignKey: 'user_id'
 });
 
-User.hasMandy(Pets,{
-    foreinKey: 'pet_id'
+User.hasMany(Pets,{
+    foreignKey: 'pet_id'
 });
 
-model.exports={
+module.exports={
     Pets,
     User
 };
