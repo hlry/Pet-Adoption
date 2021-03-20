@@ -1,29 +1,5 @@
 const router = require('express').Router();
-// const { filterByQuery, findById, createNewAnimal, validateAnimal } = require('../../lib/animals');
-// const { animals } = require('../../data/animals');
-/*
-If cats then 
-Color STRING
-Age INTEGER
-Size STRING
-Catbox trained BOOLEAN
-indoor/outdoor BOOLEAN
-Vaccinated BOOLEAN
-Microchip BOOLEAN
-Description OPEN ENDED STRING
-## 
-##
-If dogs then 
-Color STRING
-Age INTEGER
-Size STRING
-Potty trained BOOLEAN
-indoor/outdoor BOOLEAN
-Vaccinated BOOLEAN
-Microchip BOOLEAN
-Description OPEN ENDED STRING
-##
-*/
+
 const pets = [{
             'color':'black',
             'species':'cat',
@@ -64,8 +40,6 @@ router.get('/adopt', (req, res) => {
     let results = pets
     if (req.query) {
         console.log(req.query)
-        // TODO 
-        //filterByQuery(req.query, results)
     }
     res.json(results);
 });

@@ -10,6 +10,7 @@ router.get('/share', (req, res) => {
 });
 
 router.get('/adopt', (req, res) => {
+  
   res.sendFile(path.join(__dirname, '../../public/adopt.html'));
 });
 
