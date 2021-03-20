@@ -1,9 +1,13 @@
-/* 
+
 .pic-size {
     height: 400px;
     width: 400px;
-} */
+}
 
 header {
     margin: 0 0 10px 0;
+}
+
+main {
+    margin: 0 0 0 20px;
 }
