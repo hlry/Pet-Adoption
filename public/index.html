@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Pets R Us</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Karla:400,700|Rubik:400,400i,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css"
-      integrity="sha512-byErQdWdTqREz6DLAA9pCnLbdoGGhXfU6gm1c8bkf7F51JVmUBlayGe2A31VpXWQP+eiJ3ilTAZHCR3vmMyybA=="
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <header>
-      <div>
-        <h1>Pets R Us</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Pets R Us</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Rubik:400,400i,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css"
+    integrity="sha512-byErQdWdTqREz6DLAA9pCnLbdoGGhXfU6gm1c8bkf7F51JVmUBlayGe2A31VpXWQP+eiJ3ilTAZHCR3vmMyybA=="
+    crossorigin="anonymous" />
+</head>
+
+<body>
+  <!-- Header  -->
+  <header class="hero is-warning">
+    <div class="hero-body">
+      <h1 class="title">Pets R Us</h1>
+      <p class="subtitle">Your Resource for a Happy Pet</p>
+    </div>
+  </header>
+  <!-- Main  -->
+  <main>
+    <!-- Cute Animal Photos -->
+    <section>
+      <figure class="image is-128x128">
+        <img src="./assets/images/golden-retriever.jpeg">
+        <img src="./assets/images/kitten-pile.jpeg">
+        <!-- <iframe class="has-ratio" width="640" height="360" src="./assets/images/golden-retriever.jpeg"></iframe> -->
+      </figure>
+    </section>
+    <!-- Adopt or Donate Buttons -->
+    <section>
+      <div class=" buttons">
+        <a href="./adopt.html" class="button is-success is-outlined">View Pets</a>
+        <a href="./share.html" class="button is-info is-outlined">Share a Pet</a>
       </div>
-    </header>
 
-    <main>
-      <section>
-        <div>
-          <a href="./adopt.html">View Pets</a>
-          <a href="./share.html">Share a Pet</a>
-        </div>
-      </section>
-    </main>
+    </section>
+  </main>
 
-    <script src="./assets/js/script.js"></script>
-  </body>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
