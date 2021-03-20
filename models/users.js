@@ -18,18 +18,18 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
-    contact_numer:{
-        type: DataTypes.INTEGER,
+    contact_number:{
+        type: DataTypes.STRING,
         allowNull: false,
-    },
-    pet_id:{
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references:{
-          model: 'pets',
-          key: 'id'
-        }
     }
+    // pet_id:{
+    //     type: DataTypes.INTEGER,
+    //     allowNull: true,
+    //     references:{
+    //       model: 'pets',
+    //       key: 'id'
+    //     }
+    // }
 },
 {
     sequelize,

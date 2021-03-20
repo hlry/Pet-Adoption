@@ -8,10 +8,10 @@ Pets.belongsTo(User,{
 });
 
 User.hasMany(Pets,{
-    foreignKey: 'pet_id'
+    foreignKey: 'user_id'
 });
 
-module.exports={
+module.exports = {
     Pets,
     User
-};
+    };
