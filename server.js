@@ -1,9 +1,15 @@
 const express = require('express');
+const exphbs = require('express-handlebars');
+
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-const apiRoutes = require('./routes/apiRoutes');
-const htmlRoutes = require('./routes/htmlRoutes');
+
+// Sets Handlebars as the default template engine
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
