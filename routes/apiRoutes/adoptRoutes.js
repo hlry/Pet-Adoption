@@ -6,17 +6,17 @@ const { Op } = require('sequelize')
 // The `/api/adopt` endpoint
 
 // get all products
-router.get('/adopt', function (req, res, next) {
+router.get('/', function (req, res) {
   if (req.query.species) {
     Pets.findAll({
       where: {
         'species': req.query.species
       },
-      attributes: ['id', 'pet_name', 'color', 'species','size','age', 'potty_trained', 'vaccinated','microchip'] 
+      attributes: ['id', 'pet_name', 'color', 'species','size','age', 'potty_trained', 'vaccinated','microchip','user_id'] 
         // include: [ ]
     })
     .then(bySpecies => {
-        res.json(bySpecies)
+        res.status(200).json(bySpecies)
     })
     .catch(err => {
       console.log(err);

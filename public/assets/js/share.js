@@ -3,7 +3,7 @@ const $submitBtn = document.querySelector("#submit-pet")
 const handlePetsFormSubmit = (event) => {
   event.preventDefault();
 
-  const name = $petsForm.querySelector('[name="pet-name"]').value;
+  const pet_name = $petsForm.querySelector('[name="pet-name"]').value;
 
   const colorRadioHTML = $petsForm.querySelectorAll('[name="color"');
   let color;
@@ -49,7 +49,7 @@ const handlePetsFormSubmit = (event) => {
   const description = $petsForm.querySelector('[name="description"]').value;
 
   const petObject = {
-    name,
+    pet_name,
     color,
     species,
     age,

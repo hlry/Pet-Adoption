@@ -1,51 +1,26 @@
 const router = require('express').Router();
-
-const { Pets, User } = require('../../models');
-const sequelize = require('../../config/connection');
+const { share } = require('../../controllers')
+// const {bp}
 
 // api/share endpoint
+router.use('/', function (req, res, next)  {
+  // ------------- PLACE HOLDER -------------------
+  // Maybe link shared pet to user through session?
+  console.log(req.session)
+  if (req.session.countPets) {
+    // If the 'countVisit' session variable exists, increment it by 1 and set the 'firstTime' session variable to 'false'
+    req.session.countPets++;
+    req.session.hasId = true;
+  } else {
+    // If the 'countVisit' session variable doesn't exist, set it to 1 and set the 'firstTime' session variable to 'true'
+    req.session.countPets = 0;
+    req.session.hasId = false;
+  }
+  next();
 
-router.post('/', (req, res) => {
-    console.log(req.body)
-    Pets.create(
-        {
-            id : req.body.id,
-            pet_name : req.body.pet_name,
-            color : req.body.color,
-            species : req.body.species,
-            size : req.body.size,
-            age : req.body.age,
-            potty_trained : req.body.potty_trained,
-            vaccinated : req.body.vaccinated,
-            microchip :  req.body.microchip
-        }
-    )
-   .then(createData => res.json(createData))
-   .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+  //console.log(req.session.countVisit)
 
-    Pets.create(req.body)
-    .then((pet) => {
-      // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-    //   if (req.session.firstTime) {
-    //     const productTagIdArr = req.body.tagIds.map((tag_id) => {
-    //       return {
-    //         product_id: product.id,
-    //         tag_id,
-    //       };
-    //     });
-    //     return ProductTag.bulkCreate(productTagIdArr);
-    //   }
-      // if no product tags, just respond
-      res.status(200).json(pet);
-    })
-    // .then((productTagIds) => res.status(200).json(productTagIds))
-    // .catch((err) => {
-    //   console.log(err);
-    //   res.status(400).json(err);
-    // });
-})
-  
+});
+
+router.post('/',  share.postPet);
 module.exports = router;

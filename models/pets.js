@@ -1,6 +1,7 @@
 // import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
+
 const sequelize = require('../config/connection');
 
 // Initialize Pets model (table) by extending off Sequelize's Model class
@@ -37,22 +38,28 @@ Pets.init({
     potty_trained:{
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: false
     },
     vaccinated:{
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: false
+
     },
     microchip:{
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: false
+
     },
     description:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
+
     },
     user_id:{
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
         references:{
           model: 'user',
           key: 'id'
