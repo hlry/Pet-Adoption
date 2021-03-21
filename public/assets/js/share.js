@@ -5,7 +5,7 @@ const handlePetsFormSubmit = (event) => {
 
   const name = $petsForm.querySelector('[name="pet-name"]').value;
 
-  const colorRadioHTML = $petsForm.querySelectorAll('[name="color"]').value;
+  const colorRadioHTML = $petsForm.querySelectorAll('[name="color"');
   let color;
   for (let i = 0; i < colorRadioHTML.length; i += 1) {
     if (colorRadioHTML[i].checked) {
@@ -16,7 +16,7 @@ const handlePetsFormSubmit = (event) => {
     color = "";
   }
 
-  const speciesRadioHTML = $petsForm.querySelectorAll('[name="species"]').value;
+  const speciesRadioHTML = $petsForm.querySelectorAll('[name="species"');
   let species;
   for (let i = 0; i < speciesRadioHTML.length; i += 1) {
     if (speciesRadioHTML[i].checked) {
@@ -29,7 +29,7 @@ const handlePetsFormSubmit = (event) => {
 
   const age = $petsForm.querySelector('[name="age"]').value;
 
-  const sizeRadioHTML = $petsForm.querySelectorAll('[name="size"]').value;
+  const sizeRadioHTML = $petsForm.querySelectorAll('[name="size"');
   let size;
   for (let i = 0; i < sizeRadioHTML.length; i += 1) {
     if (sizeRadioHTML[i].checked) {
@@ -40,8 +40,7 @@ const handlePetsFormSubmit = (event) => {
     size = "";
   }
 
-  const selectedOtherTraits = $petsForm.querySelectorAll('[name="other"]')
-    .selectedOptions;
+  const selectedOtherTraits = $petsForm.querySelector('[name="other"').selectedOptions;
   const otherTraits = [];
   for (let i = 0; i < selectedOtherTraits.length; i += 1) {
     otherTraits.push(selectedOtherTraits[i].value);
