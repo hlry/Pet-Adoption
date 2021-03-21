@@ -1,5 +1,5 @@
 const $petsForm = document.querySelector("#pets-form");
-
+const $submitBtn = document.querySelector("#submit-pet")
 const handlePetsFormSubmit = (event) => {
   event.preventDefault();
 
@@ -77,5 +77,5 @@ const handlePetsFormSubmit = (event) => {
       alert("Thank you for adding a pet!");
     });
 };
-
-$petsForm.addEventListener("submit", handlePetsFormSubmit);
+$submitBtn.addEventListener("click", handlePetsFormSubmit);
+//$petsForm.addEventListener("submit", handlePetsFormSubmit);
