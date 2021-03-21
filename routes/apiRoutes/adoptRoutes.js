@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { Pets, User } = require('../../models');
 const sequelize = require('../../config/connection');
-
+const { Op } = require('sequelize')
 // The `/api/adopt` endpoint
 
 // get all products
