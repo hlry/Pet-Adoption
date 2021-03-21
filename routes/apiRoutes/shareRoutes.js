@@ -7,7 +7,6 @@ const sequelize = require('../../config/connection');
 
 router.post('/', (req, res) => {
     console.log(req.body)
-    
     Pets.create(
         {
             id : req.body.id,

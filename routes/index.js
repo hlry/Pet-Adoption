@@ -5,8 +5,10 @@ const htmlRoutes = require('./htmlRoutes')
 router.use('/public',htmlRoutes)
 router.use('/api', apiRoutes);
 
-router.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>")
-});
+// Use apiRoutes
+// app.use(routes);
+
+router.use('/api', apiRoutes);
+router.use('/', htmlRoutes);
 
 module.exports = router;
