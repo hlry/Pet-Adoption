@@ -1,67 +1,31 @@
 const router = require('express').Router();
 
-const pets = [{
-            'color':'black',
-            'species':'cat',
-            'name': 'Shirley',
-            'age' : 10,
-            'size' : 'large',
-            'catbox trained': true,//boolean
-            'indoor/outdoor':false, //boolean
-            'vaccinated':true, // boolean
-            'microchip': true,// boolean
-            'description': "Very grump" //open ended string
-},{
-    'color':'black',
-        'species':'dog',
-        'name' : 'Susan',
-        'age' : 5,
-        'size' : 'small',
-        'potty': true,
-        'indoor':false,
-        'vaccinated':false,
-        'microchip':true,
-        'description':null
-    },    {
-        'color':'black',
-        'species':'dog',
-        'name' : 'Charles',
-        'age' : 6,
-        'size' : 'large',
-        'potty': true,
-        'indoor':false,
-        'vaccinated':true,
-        'microchip':false,
-        'description':null
-    }
-]
+const { Pets, User } = require('../../models');
+const sequelize = require('../../config/connection');
+const { Op } = require('sequelize')
+// The `/api/adopt` endpoint
 
-router.get('/adopt', (req, res) => {
-    let results = pets
-    if (req.query) {
-        console.log(req.query)
-    }
-    res.json(results);
-});
+// get all products
+router.get('/adopt', function (req, res, next) {
+  if (req.query.species) {
+    Pets.findAll({
+      where: {
+        'species': req.query.species
+      },
+      attributes: ['id', 'pet_name', 'color', 'species','size','age', 'potty_trained', 'vaccinated','microchip'] 
+        // include: [ ]
+    })
+    .then(bySpecies => {
+        res.json(bySpecies)
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
+  } else {
+    res.json(null)
+  }
+})
 
-// router.get('/adopt/:type', (req, res) => {
-//   const result = findById(req.params.id, animals);
-//   if (result) {
-//     res.json(result);
-//   } else {
-//     res.send(404);
-//   }
-// });
-
-
-// router.post('/adopt', (req, res) => {
-//   req.body.id = animals.length.toString();
-//   if (!validateAnimal(req.body)) {
-//     res.status(400).send('The animal is not properly formatted.');
-//   } else {
-//     const animal = createNewAnimal(req.body, animals);
-//     res.json(animal);
-//   }
-// });
 
 module.exports = router;
