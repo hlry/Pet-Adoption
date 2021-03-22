@@ -5,33 +5,35 @@ const printResults = (resultArr) => {
   console.log(resultArr);
 
   const petHTML = resultArr.map(
-    ({id,pet_name,...rest}) => {
+    ({ id, pet_name, ...rest }) => {
       return `
-  <div>
-    <div data-id=${id}>
-      <h4>${pet_name}</h4>
+  <div class="pet-result">
+    <div class=container">
+      <div data-id=${id}>
+        <h4>${pet_name}</h4>
+      </div>
     </div>
   </div>
     `;
-    
-//     <p>
-//     Color: ${color.substring(0, 1).toUpperCase() + color.substring(1)}<br/>
-    
-//     Species: ${
-//       species.substring(0, 1).toUpperCase() + species.substring(1)
-//     }<br/>
 
-//     Age: ${age}<br/>
+      //     <p>
+      //     Color: ${color.substring(0, 1).toUpperCase() + color.substring(1)}<br/>
 
-//     Size: ${size.substring(0, 1).toUpperCase() + size.substring(1)}<br/>
-//     Other Traits: ${otherTraits
-//       .map(
-//         (trait) =>
-//           `${trait.substring(0, 1).toUpperCase() + trait.substring(1)}`
-//       )
-//       .join(", ")}</p>
-//   </div>
-// </div>
+      //     Species: ${
+      //       species.substring(0, 1).toUpperCase() + species.substring(1)
+      //     }<br/>
+
+      //     Age: ${age}<br/>
+
+      //     Size: ${size.substring(0, 1).toUpperCase() + size.substring(1)}<br/>
+      //     Other Traits: ${otherTraits
+      //       .map(
+      //         (trait) =>
+      //           `${trait.substring(0, 1).toUpperCase() + trait.substring(1)}`
+      //       )
+      //       .join(", ")}</p>
+      //   </div>
+      // </div>
     }
   );
 
