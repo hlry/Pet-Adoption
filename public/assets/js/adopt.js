@@ -100,8 +100,7 @@ const handleGetPetsSubmit = (event) => {
   }
 
   const otherTraitArr = [];
-  const selectedTraits = $petsForm.querySelector('[name="other"')
-    .selectedOptions;
+  const selectedTraits = $petsForm.querySelector('[name="other"').selectedOptions;
 
   for (let i = 0; i < selectedTraits.length; i += 1) {
     otherTraitArr.push(selectedTraits[i].value);
@@ -109,7 +108,7 @@ const handleGetPetsSubmit = (event) => {
 
   const otherTraits = otherTraitArr.join(",");
 
-  const petObject = { color, species, size, otherTraits };
+  const petObject = { color, species, size, ...otherTraits };
 
   getPets(petObject);
 };

@@ -2,11 +2,14 @@ const router = require('express').Router();
 
 const { Pets, User } = require('../../models');
 const sequelize = require('../../config/connection');
-const { Op } = require('sequelize')
+const { Op } = require('sequelize');
+const { flattenQuery } = require('../../utils');
 // The `/api/adopt` endpoint
 
 // get all products
 router.get('/', function (req, res) {
+  console.log(req.query);
+  // console.log(flattenQuery(req.query));
   if (req.query.species) {
     Pets.findAll({
       where: {
@@ -16,7 +19,10 @@ router.get('/', function (req, res) {
         // include: [ ]
     })
     .then(bySpecies => {
-        res.status(200).json(bySpecies)
+      const data = {
+        pets: bySpecies
+      }
+      res.render('index', data)
     })
     .catch(err => {
       console.log(err);

@@ -8,6 +8,7 @@ const sequelize = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use(
@@ -16,11 +17,11 @@ app.use(
       resave: false,
       saveUninitialized: false
     })
-  );
+    );
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 app.use(routes);
 

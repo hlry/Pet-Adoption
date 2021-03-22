@@ -1,4 +1,5 @@
 var _ = require('lodash');
+
 function flattenQuery(body) {
     var traits = _.valuesIn(body.otherTraits);
     var vals = _.fill(traits, true);
