@@ -15,6 +15,8 @@ var hbs = exphbs.create({
   helpers: {
       id : function() {return this.id},
       pet_name : function () { return this.pet_name; },
+      age : function () { return this.age; },
+      color : function () { return this.color; },
       size : function () { return this.size; },
       species: function() {return this.species},
       user_id : function () { return this.user_id; },
