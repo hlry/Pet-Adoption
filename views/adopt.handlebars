@@ -1,5 +1,14 @@
-  {{#each pets}}
-  {{!-- {{#if d}} --}}
-  {{> pets/pet-block}}
-  {{!-- {{/if}} --}}
-  {{/each}}
+{{> adopt-header}}
+<body>
+  <main>
+  <!-- Main  -->
+  <section class="columns">
+    <div class="column"> 
+    {{> adopt-form}}
+    </div>
+    <div class="column">
+    {{> pet-display}}
+    </div>
+  </section>
+  </main>
+</body>

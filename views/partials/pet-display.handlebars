@@ -1,0 +1,13 @@
+<div id="display-area">
+<h3>Display Pets Here</h3>
+{{#each pets}}
+<div class="container">
+{{!-- {{#if d}} --}}
+{{> blocks/pet-block}}
+<p>{{species}}</p>
+
+</div>
+{{/each}}
+</div>
+
+  

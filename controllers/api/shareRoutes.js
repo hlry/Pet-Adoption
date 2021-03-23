@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { share } = require('../../controllers')
 // const {bp}
 
 // api/share endpoint
@@ -22,5 +21,9 @@ router.use('/', function (req, res, next)  {
 
 });
 
-router.post('/',  share.postPet);
+router.post('/',  function( res,req,next) { 
+  share.postPet()
+}
+);
+
 module.exports = router;

@@ -1,0 +1,73 @@
+
+const router = require('express').Router();
+const sequelize = require('../../config/connection');
+const { Op } = require("sequelize");
+const { Pets, Users } = require('../../models');
+const { format_url, flattenQuery } = require('../../utils');
+
+const renderPets = async function (data, res) {
+    console.log(data);
+    res.render('adopt', data);
+}
+
+const queryPets = async function (req,res)    {
+    // let data;
+    let petData;
+    let data;
+    const filt = req.query;
+    if ( !(filt.species || null)) {
+        filt.species = ['cat', 'dog']
+    }
+    try { 
+        petData = await Pets.findAll({ where: {species: filt.species}, attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description']});
+        res.json(petData);
+    } catch (err) {
+        console.log(err);
+        throw(err);
+  
+    }
+    // data = {
+    //     pets: petData,
+    //     activePets: true
+    // }
+    // return renderPets(data,res);
+};
+// router.get('/q', queryPets);
+router.get('/:q', (req, res) => { 
+    // ---- TO DO ----------
+    Pets.findAll({
+        where: {species: [req.params.q]},
+        attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
+    })
+    .then(dbPetsData => {
+        if (!dbPetsData) {
+            res.status(404).json({ message: 'No Pets Found' });
+            return;
+        }
+        res.status(200).render('adopt', {pets: dbPetsData, activePets: true} );
+    })
+    .catch( err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+});
+
+// router.get('/adopt', (req, res) => { 
+//     // ---- TO DO ----------
+//     Pets.findAll({
+//         attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
+//     })
+//     .then(dbPetsData => {
+//         if (!dbPetsData) {
+//             res.status(404).json({ message: 'No Pets Found' });
+//             return;
+//         }
+//         res.json(dbPetsData);
+//     })
+//     .catch( err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+// });
+// router.get 
+module.exports = router;// //, renderPets, findPets}
