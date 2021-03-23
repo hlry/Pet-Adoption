@@ -1,12 +1,18 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Pets, User } = require('../models');
-
-// router.use()
+const {Op} = require('sequelize');
+const {format_url} = require('../utils');
+router.param("q", (req,res,next,queryStr) => {
+    let formatted = format_url(req.url);
+    console.log(formatted);
+    next();
+});
 router.get('/:q', function(req,res) {
-    console.log("#### ADOPT-ROUTES\n++++++++ %s %s %s %s\n", req.method, req.path, req.params, req.query)
+    console.log("#### ADOPT-ROUTES\n++++++++ %s %s %s %s\n", req.method, req.path, req.params, req.query);
+    // req.query
     Pets.findAll({
-        where : {
+        where : { 
             species: req.query.species
         },
         attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
