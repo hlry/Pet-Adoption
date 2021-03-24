@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { Pets, User } = require('../models');
 const {Op} = require('sequelize');
 const {format_url} = require('../utils');
+
 router.param("q", (req,res,next,queryStr) => {
     let formatted = format_url(req.url);
     console.log(formatted);

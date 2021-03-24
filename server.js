@@ -25,7 +25,13 @@ var hbs = exphbs.create({
   defaultLayout : 'main'
 })
 
-
+app.use(
+  session({
+    secret: 'This is a major secret!',
+    resave: false,
+    saveUninitialized: false
+  })
+  );
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -35,13 +41,7 @@ app.use('/static', express.static(path.join(__dirname, 'public', 'assets')))
 
 app.use(require('./controllers/'));
 
-app.use(
-  session({
-    secret: 'This is a major secret!',
-    resave: false,
-    saveUninitialized: false
-  })
-  );
+
 
 
 

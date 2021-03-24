@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const petRoutes = require('./pet-routes');
-const shareRoutes = require('./shareRoutes');
+// const shareRoutes = require('./shareRoutes');
 // router.use('/')s
 router.param('q', function(req,res,next, queryStr){
     console.log("$$$$$$$$ Q\n $$$$$ %s %s %s", req.method, req.path, req.url)
@@ -10,7 +10,7 @@ router.param('q', function(req,res,next, queryStr){
 );
 router.use('/pets', petRoutes);
 // router.use('/adopt', petRoutes);
-router.use('/share', shareRoutes);
+// router.use('/share', shareRoutes);
 
 // router.get('/adopt')
 module.exports = router;

@@ -5,6 +5,21 @@ const { Op } = require("sequelize");
 const { Pets, Users } = require('../../models');
 const { format_url, flattenQuery } = require('../../utils');
 
+const createNewPet = async (data) => {
+    return await Pets.create(data)
+}
+
+const postPet = async (req, res) => {   
+    try {
+        req.body.user_id = 1 // placeholder
+        const petData = flattenQuery(req.body);
+        await createNewPet(petData);
+        res.status(200).json(petData);
+    } catch (e) {
+        console.log(e);
+        res.status(500).json(e);
+    }
+}
 const renderPets = async function (data, res) {
     console.log(data);
     res.render('adopt', data);
@@ -51,7 +66,8 @@ router.get('/:q', (req, res) => {
         res.status(500).json(err);
       });
 });
-
+router.post('/',  postPet);
+// );
 // router.get('/adopt', (req, res) => { 
 //     // ---- TO DO ----------
 //     Pets.findAll({

@@ -7,8 +7,26 @@
     {{> adopt-form}}
     </div>
     <div class="column">
-    {{> pet-display}}
+      <div id="display-area">
+      {{> pet-display}}
+      </div>
     </div>
   </section>
+  {{!-- <script type="text/javascript">
+    var contentSrc=$("#display-area").html();
+    var contentTemplate = Handlebars.compile(contentSrc);
+
+    //because you already have a compiled version of your content template now you can pass this as partial
+    Handlebars.registerPartial("tabContentPartial", contentTemplate);
+    var context = {
+        mycontent : {
+            pets : "something that has to change everytime I click on a different tab",
+            image : "idem"
+        }
+    };
+    var html = template(context);
+    $("body").html(html);
+</script> --}}
+
   </main>
 </body>
