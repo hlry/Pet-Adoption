@@ -1,8 +1,10 @@
 // const path = require('path');
 const router = require('express').Router();
-
-router.use('/', function (req, res,next) {
+// const {format_url} = require('../utils')
+router.use('/', function (req, res, next) {
   console.log('%s %s %s %s', req.method, req.url, req.path, req.originalUrl);
+  // format_url(
+//  console.log(format_url())//'%s %s %s %s', req.method, req.url, req.path, req.originalUrl);
   next();
 })
 

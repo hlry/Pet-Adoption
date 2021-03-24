@@ -28,7 +28,7 @@ var hbs = exphbs.create({
       age : function () { return this.age; },
       color : function () { return this.color; },
       size : function () { return this.size; },
-      species: function() {return this.species},
+      species: function() {return `${this.species.substr(0,1).toUpperCase()}${this.species.slice(1)}`},
       user_id : function () { return this.user_id; },
       description: function() {return this.description}
       },

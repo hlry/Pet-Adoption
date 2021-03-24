@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const { Pets, User } = require('../models');
 const sequelize = require('../config/connection');
-const { flattenQuery } = require('../utils');
+// const { flattenQuery } = require('../utils');
 
 
 router.get('/', function( req, res) {
