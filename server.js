@@ -11,6 +11,16 @@ const path = require('path');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+
+app.use(
+  session({
+    secret: 'This is a major secret!',
+    resave: false,
+    saveUninitialized: false
+  })
+  );
+
+app.use('/static', express.static(path.join(__dirname, 'public', 'assets')))
 var hbs = exphbs.create({
   helpers: {
       id : function() {return this.id},
@@ -25,19 +35,11 @@ var hbs = exphbs.create({
   defaultLayout : 'main'
 })
 
-app.use(
-  session({
-    secret: 'This is a major secret!',
-    resave: false,
-    saveUninitialized: false
-  })
-  );
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/static', express.static(path.join(__dirname, 'public', 'assets')))
 
 app.use(require('./controllers/'));
 
