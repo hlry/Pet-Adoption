@@ -3,12 +3,13 @@
 ## Table of Contents
 * [Description](#Description)
 * [Demonstration](#Demonstration)
-* [Example Output Readme](#Example)
+* [Sample Screenshot](#Sample)
 * [Features](#Features)
 * [Installation](#Installation)
 * [Usage](#Usage)
 * [LICENSE](#LICENSE)
 * [CONTRIBUTING](#CONTRIBUTING)
+* [Credits](#Credits)
 * [Questions](#Questions)
 
 ## Description
@@ -18,7 +19,7 @@ This responsive full stack web application will help humans find their animals, 
 ![Screenshot](/public/assets/images/homepage-screenshot.png?raw=true)
 
 ## Features
-Utilizes javascript, node, npm (including Inquire), and markdown formats to bring you the README of your dreams.
+Utilizes javascript, node, npm, MySQL2, sequelize, express, handlebars, bulma, dotenv, and heroku to bring you a full stack, responsive website to maintain and update a database of adoptable cats and dogs.
 
 ## Installation
 Clone this project from GitHub to your local machine.
@@ -26,10 +27,17 @@ Clone this project from GitHub to your local machine.
 To install dependencies, run the following in your Command Line Interface (e.g., Terminal or Bash):
 - npm init
 - npm install manager
+- npm i express
+- npm i mysql2
+- npm i sequelize
+
 
 ## Usage
-Then run the following command:
+Run the following commands:
+- start your MySQL server
 - npm run
+
+OR: go to the deployed Heroku website.
 
 ## LICENSE
 This repository is licensed under the 'MIT License'.
