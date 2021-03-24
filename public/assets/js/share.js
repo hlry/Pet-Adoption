@@ -58,7 +58,7 @@ const handlePetsFormSubmit = (event) => {
     description,
   };
 
-  fetch("/api/share", {
+  fetch("/api/pets", {
     method: "POST",
     headers: {
       Accept: "application/json",

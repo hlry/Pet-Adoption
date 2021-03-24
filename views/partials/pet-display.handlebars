@@ -1,0 +1,10 @@
+{{#unless activePets}}
+<h3>Display Pets Here</h3>
+{{/unless}}
+{{#each pets}}
+<div class="container">
+{{> blocks/pet-block}}
+</div>
+{{/each}}
+
+  

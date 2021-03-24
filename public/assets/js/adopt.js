@@ -1,68 +1,33 @@
 const $petsForm = document.querySelector("#pets-form");
+const $getPetsBtn = document.querySelector("#get-pets-btn");
 const $displayArea = document.querySelector("#display-area");
 
-const printResults = (resultArr) => {
-  console.log(resultArr);
+// let formData  = new FormData();
+const getPets = (event) => {
+  event.preventDefault();
 
-  const petHTML = resultArr.map(
-    ({id,pet_name,...rest}) => {
-      return `
-  <div>
-    <div data-id=${id}>
-      <h4>${pet_name}</h4>
-    </div>
-  </div>
-    `;
-    
-//     <p>
-//     Color: ${color.substring(0, 1).toUpperCase() + color.substring(1)}<br/>
-    
-//     Species: ${
-//       species.substring(0, 1).toUpperCase() + species.substring(1)
-//     }<br/>
-
-//     Age: ${age}<br/>
-
-//     Size: ${size.substring(0, 1).toUpperCase() + size.substring(1)}<br/>
-//     Other Traits: ${otherTraits
-//       .map(
-//         (trait) =>
-//           `${trait.substring(0, 1).toUpperCase() + trait.substring(1)}`
-//       )
-//       .join(", ")}</p>
-//   </div>
-// </div>
+  let queryStr = parseFormData().join('&')
+  const url = '/api/adopt?'+queryStr;
+  fetch(url,
+    {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
     }
-  );
-
-  $displayArea.innerHTML = petHTML.join("");
-};
-
-const getPets = (formData = {}) => {
-  let queryUrl = "/api/adopt?";
-
-  Object.entries(formData).forEach(([key, value]) => {
-    queryUrl += `${key}=${value}&`;
-  });
-
-  console.log(queryUrl);
-
-  fetch(queryUrl)
-    .then((response) => {
-      if (!response.ok) {
-        return alert("Error: " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((petData) => {
-      console.log(petData);
-      printResults(petData);
     });
 };
 
+
+const parseFormData = () => {
+  // event.preventDefault();
+  formData = new FormData(document.getElementById('pets-form'));
+  // formData.keys
+  let search = formData.getAll('species');
+  return search;
+
+}
 const handleGetPetsSubmit = (event) => {
   event.preventDefault();
-
   const colorRadioHTML = $petsForm.querySelectorAll('[name="color');
   let color;
   for (let i = 0; i < colorRadioHTML.length; i += 1) {
@@ -100,20 +65,28 @@ const handleGetPetsSubmit = (event) => {
   }
 
   const otherTraitArr = [];
-  const selectedTraits = $petsForm.querySelector('[name="other"')
-    .selectedOptions;
+  const selectedTraits = $petsForm.querySelector('[name="other"').selectedOptions
 
   for (let i = 0; i < selectedTraits.length; i += 1) {
     otherTraitArr.push(selectedTraits[i].value);
   }
 
-  const otherTraits = otherTraitArr.join(",");
+  const otherTraits = otherTraitArr;
 
   const petObject = { color, species, size, otherTraits };
 
-  getPets(petObject);
+  getPets(petObject)
 };
+const renderPets = async(pets) => {
+  
+  let jsonPets = await pets.json();
+  $displayArea.innerHTML = `<div>${jsonPets}</div>`;
 
-$petsForm.addEventListener("submit", handleGetPetsSubmit);
+}
+const applySearchFilters = () => getPets().then(renderPets); //then(getPets)
 
-getPets();
+
+$getPetsBtn.addEventListener("click",getPets);
+
+
+
