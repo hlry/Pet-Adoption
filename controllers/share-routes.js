@@ -9,11 +9,12 @@ router.get('/', function( req, res) {
     res.render('share');
   });
   
-// router.post('/', function( req, res) {
-//     // res.render('share');
+router.post('/', function( req, res) {
+  // res.redirect()
+    res.render('share');
 //     // res.json(req.body);
 //     postPet(req,res);
-//     //res.('share');
-//   });
+    //res.('share');
+  });
 
 module.exports = router;

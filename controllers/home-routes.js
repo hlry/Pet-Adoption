@@ -1,15 +1,23 @@
-// const path = require('path');
 const router = require('express').Router();
 // const {format_url} = require('../utils')
-router.use('/', function (req, res, next) {
+
+
+router.get('/', function (req, res, next) {
   console.log('%s %s %s %s', req.method, req.url, req.path, req.originalUrl);
-  // format_url(
-//  console.log(format_url())//'%s %s %s %s', req.method, req.url, req.path, req.originalUrl);
+  next();
+})
+router.get('/', function(req,res, next ) {
+  console.log('\n@@ IN SERVER.JS @@@\n===================')
+  res.render('home')
+});
+
+
+router.post('/', function (req, res, next) {
+  console.log('%s %s %s %s', req.method, req.url, req.path, req.originalUrl);
   next();
 })
 
-
-
+// router.get('/')
 // router.get('/assets/*',(req, res) => {
 //   res.sendFile(path.join(__dirname, '../../public'));
 // });

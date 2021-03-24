@@ -20,6 +20,7 @@ const postPet = async (req, res) => {
         res.status(500).json(e);
     }
 }
+
 const renderPets = async function (data, res) {
     console.log(data);
     res.render('adopt', data);
@@ -48,18 +49,36 @@ const queryPets = async function (req,res)    {
     // return renderPets(data,res);
 };
 // router.get('/q', queryPets);
-router.get('/:q', (req, res) => { 
-    // ---- TO DO ----------
+router.get('/', (req,res,next) => {
     Pets.findAll({
-        where: {species: [req.params.q]},
+        attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
+    })
+    .then(all_dbPetsData => {
+        if (!all_dbPetsData) {
+            res.status(200).json({ activePets: false, pets: {}, message: 'No Pets In Database!' });
+        } else {
+            res.json(all_dbPetsData) ;
+            next();
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
+router.get('/:q', (req, res) => {
+    Pets.findAll({
+        where: req.query.param ,
+        // where: {species: [req.params.q.species]},
         attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
     })
     .then(dbPetsData => {
         if (!dbPetsData) {
-            res.status(404).json({ message: 'No Pets Found' });
+            res.status(404).json({ activePets: false, pets: {}, message: 'No Pets Found' });
             return;
         }
-        res.status(200).render('adopt', {pets: dbPetsData, activePets: true} );
+        res.json(dbPetsData) ;//'adopt', {pets: dbPetsData, activePets: true} );
     })
     .catch( err => {
         console.log(err);
