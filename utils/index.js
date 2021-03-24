@@ -1,18 +1,11 @@
 
 // const helpers = require('./helpers's);
 var _ = require('lodash');
+
 const overrideBool = function (o) {
     return (o || (o === ''))
 }
 const defaultFilters = function(query) {
-    console.log(query)
-    let vals = _.mapValues(query, overrideBool)
-    
-    // const x = _.zipObject(_.keysIn(query),vals);
-
-
-    // let x = _.defaults(query);
-    // console.log("=======================######## DEFAULTS: %s", x);
     return _.mapValues(query, overrideBool);
 }
 const flattenQuery = function(body) {

@@ -1,9 +1,13 @@
-<div class="box pet-result" data-id={{id}} >
-  <p class="title is-2">{{pet_name}}</p>
-  <p class="subtitle is-2">{{species}}</p>
-  <p class="is-4">{{color}} </p>
-  <p class="is-4">{{age}} </p>
-  <p class="is-4">{{size}} </p>
-  <p class="is-4">{{other}} </p>
-  <p class="is-4">{{lookupOrDefault this 'description' '' }}</p>
+<div class="card-content">
+  <h4 class="title is-4">{{pet_name}}</h4> 
+  <p class="subtitle is-4">{{species}}</p>
+  <p class="is-4`">{{displayProp this 'color'}} </p>
+  <p class="is-4">{{displayProp this 'age'}}</p>
+  <p class="is-4">{{displayProp this 'size'}} </p>
+  <p class="is-4">{{'other'}}</p>
+  <p>{{lookupOrDefault this 'description' '' }}</p>
 </div>
+<footer class="card-footer">
+<a href="#" class="card-footer-item btn button is-info">Adopt</a>
+<a href="#" class="card-footer-item btn button is-success">Donate</a>
+</footer>

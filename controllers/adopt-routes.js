@@ -15,7 +15,7 @@ router.param('q', (req,res,next, param) => {
 router.use('/', function(req,res,next) {
        // req.query
     Pets.findAll({
-        attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description']
+        attributes: ['id', 'pet_name', 'species', 'age', 'size', 'color','potty_trained','vaccinated','microchip', 'description']
     }).then(dbPetsData => {
         const pets = dbPetsData.map(pet => pet.get( {plain: true} ));
         req.locals = {
@@ -40,7 +40,7 @@ router.get('/:q', function(req,res, next) {
     console.log(typeof(req.query));
     Pets.findAll({
         where : req.query.param,
-        attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
+        attributes: ['id', 'pet_name', 'species','size','age', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
     })
     .then(dbPetsData => {
         const pets = dbPetsData.map(pet => pet.get( {plain: true} ));

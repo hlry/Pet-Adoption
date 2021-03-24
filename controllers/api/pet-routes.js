@@ -42,16 +42,12 @@ const queryPets = async function (req,res)    {
         throw(err);
   
     }
-    // data = {
-    //     pets: petData,
-    //     activePets: true
-    // }
-    // return renderPets(data,res);
+ 
 };
-// router.get('/q', queryPets);
+
 router.get('/', (req,res,next) => {
     Pets.findAll({
-        attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
+        attributes: ['id', 'pet_name', 'species', 'age', 'size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
     })
     .then(all_dbPetsData => {
         if (!all_dbPetsData) {
@@ -71,7 +67,7 @@ router.get('/:q', (req, res) => {
     Pets.findAll({
         where: req.query.param ,
         // where: {species: [req.params.q.species]},
-        attributes: ['id', 'pet_name', 'species','size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
+        attributes: ['id', 'pet_name', 'species', 'age', 'size', 'color','potty_trained','vaccinated','microchip', 'description', 'user_id']
     })
     .then(dbPetsData => {
         if (!dbPetsData) {
