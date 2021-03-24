@@ -1,3 +1,4 @@
+
 let $petsForm;
 let $getPetsBtn;
 let $displayArea;
@@ -6,6 +7,9 @@ if (window.location.pathname.match(/\/adopt\/*/)) {
     $getPetsBtn = document.querySelector("#get-pets-btn");
     $displayArea = document.querySelector("#display-area");
 }
+// $(document).ready(function() {
+
+
 const join_query =   ( o => {
   // let {...n} = o.split(':')
   return o.filter( v => { return (v !== "") }).join('&')
@@ -45,7 +49,22 @@ const applyPetFilter = async function (event) {
     
     
   }
-  if (window.location.pathname.match(/\/adopt.*/)) {
-    document.querySelector('#get-pets-btn').addEventListener("click", applyPetFilter);
 
-  }
+  /* eslint-disable */
+
+  // // Place JavaScript code here...
+  // function displayArea(form) {
+  //   var formData = $(form).serializeArray();
+  //   $.get('/adopt/q?', {
+  //     species: formData[0].value
+  //   }).then(function (data) {
+  //     $('#display-area').html(data);
+  //   });
+  // }
+
+  // window.displayArea = displayArea;
+
+if (window.location.pathname.match(/\/adopt.*/)) {
+  document.querySelector('#get-pets-btn').addEventListener("click", applyPetFilter);
+}
+// });
