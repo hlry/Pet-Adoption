@@ -15,7 +15,7 @@
 This responsive full stack web application will help humans find their animals, and help people connect adoptable pets with open homes.
 
 ## Sample
-![Screenshot](/public/assets/images/Pets R Us Screenshot.png?raw=true)
+![Screenshot](/public/assets/images/homepage-screenshot.png?raw=true)
 
 ## Features
 Utilizes javascript, node, npm (including Inquire), and markdown formats to bring you the README of your dreams.
