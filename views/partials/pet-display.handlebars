@@ -2,11 +2,10 @@
 <h3>Display Pets Here</h3>
 {{/unless}}
 {{#each pets}}
-{{!-- <div class="container"> --}}
 <div data-id={{id}} class="pet-result card mb-2">
-{{> blocks/pet-block}}
+    {{> blocks/pet-block}}
 </div>
-{{!-- </div> --}}
 {{/each}}
+
 
   

@@ -1,18 +1,19 @@
     <!-- Page SubHeading  -->
-    <p class="title is-4">Your Future Pet is Here</p>
-    <p class="subtitle is-6">Filter Your Search</p>
-    <!--We can add a filter however this will depend on how we want the filter to work and our data structure-->
+<div class="box">
+<p class="title is-4">Your Future Pet is Here</p>
+<p class="subtitle is-6">Filter Your Search</p>
+<!--We can add a filter however this will depend on how we want the filter to work and our data structure-->
+<div class="container">
+    <form id="pets-form">
+    <!-- Species  -->
+    <label for="species-input" class="form-label has-text-weight-bold">Species:</label>
     <div>
-        <form id="pets-form">
-        <!-- Species  -->
-        <label for="species-input" class="form-label has-text-weight-bold">Species:</label>
         <div>
-            <div>
-            <input type="radio" id="dog-input" name="species" value="dog" />
+            <input type="checkbox" id="dog-input" name="species" value="dog" />
             <label for="dog-input">Dog</label>
             </div>
             <div>
-            <input type="radio" id="cat-input" name="species" value="cat" />
+            <input type="checkbox" id="cat-input" name="species" value="cat" />
             <label for="cat-input">Cat</label>
             </div>
             {{!-- <div>
@@ -26,23 +27,23 @@
         <label for="color-input" class="form-label has-text-weight-bold">Color:</label>
         <div>
             <div>
-            <input type="radio" id="orange-input" name="color" value="orange"/>
+            <input type="checkbox" id="orange-input" name="color" value="orange" />
             <label for="orange-input">Orange</label>
             </div>
             <div>
-            <input type="radio" id="black-input" name="color" value="black" />
+            <input type="checkbox" id="black-input" name="color" value="black" />
             <label for="black-input">Black</label>
             </div>
             <div>
-            <input type="radio" id="brown-input" name="color" value="brown" />
+            <input type="checkbox" id="brown-input" name="color" value="brown" />
             <label for="brown-input">Brown</label>
             </div>
             <div>
-            <input type="radio" id="white-input" name="color" value="white" />
+            <input type="checkbox" id="white-input" name="color" value="white" />
             <label for="white-input">White</label>
             </div>
             <div>
-           <input type="radio" id="multi-color-input" name="color" value="multi-color"  />
+           <input type="checkbox" id="multi-color-input" name="color" value="multi-color" />
            <label for="multi-color-input">Multi-Color</label>
             </div>
             {{!-- <div>
@@ -60,25 +61,17 @@
         <label for="xsmall-input">Extra Small</label>
         </div> -->
             <div>
-            <input type="radio" id="small-input" name="size" value="small" />
+            <input type="checkbox" id="small-input" name="size" value="small" />
             <label for="small-input">Small</label>
             </div>
             <div>
-            <input type="radio" id="medium-input" name="size" value="medium" />
+            <input type="checkbox" id="medium-input" name="size" value="medium" />
             <label for="medium-input">Medium</label>
             </div>
             <div>
-            <input type="radio" id="large-input" name="size" value="large" />
+            <input type="checkbox" id="large-input" name="size" value="large" />
             <label for="large-input">Large</label>
             </div>
-        <!-- <div>
-        <input type="radio" id="xlarge-input" name="size" value="xlarge" />
-        <label for="xlarge-input">Extra Large</label>
-        </div> -->
-            {{!-- <div>
-            <input type="radio" id="anysize-input" name="size" value="anysize" />
-            <label for="anysize-input">Any Size</label>
-            </div> --}}
         </div> <br />
 
         <!-- Other Requests  -->
@@ -106,4 +99,5 @@
         <!-- Back to Homepage -->
         <a class="btn button is-info" href="/">Back</a>
     </div>
-</div> 
+</div>
+</div>
