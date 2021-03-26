@@ -81,6 +81,26 @@ router.get('/:q', (req, res) => {
         res.status(500).json(err);
       });
 });
+
+router.delete('/:id', (req, res) => {
+    console.log('id', req.params.id);
+    Pets.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbPetsData => {
+        if (! dbPetsData) {
+          res.status(404).json({ message: 'No post found with this id' });
+          return;
+        }
+        res.json(dbPetsData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 router.post('/',  postPet);
 // );
 // router.get('/adopt', (req, res) => { 

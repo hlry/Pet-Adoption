@@ -13,23 +13,10 @@
       </div>
     </div>
   </section>
-  {{!-- <script src="/static/js/script.js"></script> --}}
-
-  {{!-- <script type="text/javascript">
-    var contentSrc=$("#display-area").html();
-    var contentTemplate = Handlebars.compile(contentSrc);
-
-    //because you already have a compiled version of your content template now you can pass this as partial
-    Handlebars.registerPartial("tabContentPartial", contentTemplate);
-    var context = {
-        mycontent : {
-            pets : "something that has to change everytime I click on a different tab",
-            image : "idem"
-        }
-    };
-    var html = template(context);
-    $("body").html(html);
-</script> --}}
-
   </main>
+{{#if activePets}}
+<script src="/static/js/adopt-pet.js"></script>
+{{/if}}
 
+
+ <script src="/static/js/script.js"></script>

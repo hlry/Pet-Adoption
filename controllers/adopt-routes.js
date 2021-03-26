@@ -17,7 +17,7 @@ router.use('/', function(req,res,next) {
         attributes: ['id', 'pet_name', 'species', 'age', 'size', 'color','potty_trained','vaccinated','microchip', 'description']
     }).then(dbPetsData => {
         const pets = dbPetsData.map(pet => pet.get( {plain: true} ));
-        res.locals = {
+        req.locals = {
             'pets': pets,
             'activePets':true
         }
@@ -27,8 +27,8 @@ router.use('/', function(req,res,next) {
 
 });
 
-router.get('/', function(req,res) {
-    res.status(200).render('adopt', {'pets': res.locals.pets, filtered: false, activePets: res.locals.activePets} );
+router.get('/', function(req,res,next) {
+    res.status(200).render('adopt', {'pets': req.locals.pets, filtered: false, activePets: req.locals.activePets} );
 });
 
 router.get('/:q', function(req,res, next) {
