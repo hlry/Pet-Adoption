@@ -37,7 +37,7 @@ Run the following commands:
 - start your MySQL server
 - npm run
 
-OR: go to the deployed Heroku website.
+OR: go to the deployed website at https://polar-lowlands-05168.herokuapp.com/
 
 ## LICENSE
 This repository is licensed under the 'MIT License'.
