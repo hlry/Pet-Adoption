@@ -1,0 +1,13 @@
+<div class="card-content">
+  <h4 class="title is-4">{{pet_name}}</h4> 
+  <p class="subtitle is-4">{{species}}</p>
+  <p class="is-4`">{{displayProp this 'color'}} </p>
+  <p class="is-4">{{displayProp this 'age'}}</p>
+  <p class="is-4">{{displayProp this 'size'}} </p>
+  <p class="is-4">{{'other'}}</p>
+  <p>{{lookupOrDefault this 'description' '' }}</p>
+</div>
+<footer class="card-footer">
+<a href="#" class="card-footer-item btn-adopt-pet button is-info">Adopt</a>
+<a href="#" class="card-footer-item btn-donate button  is-success">Donate</a>
+</footer>

@@ -1,0 +1,12 @@
+{{#unless activePets}}
+<h3>Display Pets Here</h3>
+{{/unless}}
+<div class="pet-result"> 
+{{#each pets}}
+<div data-id={{id}} class="card mb-2">
+    {{> blocks/pet-block}}
+</div>
+{{/each}}
+</div>
+
+  

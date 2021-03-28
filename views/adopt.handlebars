@@ -1,0 +1,22 @@
+{{> adopt-header}}
+  <main>
+  <!-- Main  -->
+  <section class="columns mt-2">
+    <div class="column is-4">
+      <div class="container">
+        {{> adopt-form}}
+      </div>
+    </div>
+    <div class="column">
+      <div id="display-area">
+        {{> pet-display}}
+      </div>
+    </div>
+  </section>
+  </main>
+{{#if activePets}}
+<script src="/static/js/adopt-pet.js"></script>
+{{/if}}
+
+
+ <script src="/static/js/script.js"></script>
