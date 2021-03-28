@@ -36,6 +36,7 @@ To install dependencies, run the following in your Command Line Interface (e.g.,
 Run the following commands:
 - start your MySQL server
 - npm run
+- visit http://localhost:3001/ in your browser
 
 OR: go to the deployed website at https://polar-lowlands-05168.herokuapp.com/
 
